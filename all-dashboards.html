@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Galeria de Dashboards | Portfolio William S. Costa</title>
+    <meta name="description" content="Coleção completa de dashboards de Business Intelligence e ferramentas analíticas desenvolvidas por William S. Costa.">
+    <meta property="og:title" content="Galeria de Dashboards">
+    <meta property="og:description" content="Navegue pelos meus projetos de visualização e análise de dados.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#c1c1ff",
+                        "surface-container-low": "#1b1b23",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1f1f27",
+                        "on-secondary-container": "#b3b3f1",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#34343d",
+                        "primary-fixed": "#e2dfff",
+                        "background": "#13131b",
+                        "tertiary": "#ffb787",
+                        "on-tertiary-fixed": "#311300",
+                        "on-primary-fixed-variant": "#322dbd",
+                        "surface-container-high": "#2a2932",
+                        "primary-container": "#5c5be5",
+                        "outline-variant": "#464554",
+                        "on-surface": "#e4e1ed",
+                        "on-tertiary-container": "#ffeee6",
+                        "on-primary": "#1700a8",
+                        "inverse-on-surface": "#302f38",
+                        "on-primary-fixed": "#0a006b",
+                        "on-background": "#e4e1ed",
+                        "secondary-fixed-dim": "#c1c1ff",
+                        "on-tertiary": "#512400",
+                        "on-primary-container": "#f2efff",
+                        "error-container": "#93000a",
+                        "inverse-primary": "#4c4ad5",
+                        "surface-container-lowest": "#0e0d15",
+                        "tertiary-fixed-dim": "#ffb787",
+                        "on-surface-variant": "#c7c4d7",
+                        "secondary-container": "#43437a",
+                        "on-secondary-fixed-variant": "#414177",
+                        "inverse-surface": "#e4e1ed",
+                        "tertiary-fixed": "#ffdcc7",
+                        "on-secondary": "#2a2a5f",
+                        "surface-bright": "#393841",
+                        "surface": "#13131b",
+                        "tertiary-container": "#ae5500",
+                        "on-secondary-fixed": "#141449",
+                        "surface-container-highest": "#34343d",
+                        "secondary": "#c1c1ff",
+                        "surface-dim": "#13131b",
+                        "on-tertiary-fixed-variant": "#733600",
+                        "secondary-fixed": "#e2dfff",
+                        "on-error": "#690005",
+                        "surface-tint": "#c1c1ff",
+                        "primary": "#c1c1ff",
+                        "outline": "#918fa0"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #10131a;
+            color: #e4e1ed;
+        }
+    </style>
+</head>
+
+<body class="font-body selection:bg-primary/30">
+    <!-- TopNavBar Component -->
+    <nav class="fixed top-0 w-full z-50 bg-[#10131a] shadow-2xl shadow-black/40">
+        <div class="flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto">
+            <div class="text-xl font-bold text-[#e1e2eb] tracking-tighter">
+                Ver Todos Dashboards
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
+                <a class="text-[#b0c6ff] hover:text-[#e1e2eb] transition-colors" href="index.html">Home</a>
+                <a class="text-[#75ff9e] border-b-2 border-[#75ff9e] pb-1" href="#">Dashboards</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative inline-block text-left" id="contact-dropdown-container">
+                    <button onclick="toggleContactDropdown(event)" id="contact-btn"
+                        class="bg-[#75ff9e] text-[#10131a] px-6 py-2 rounded-lg font-bold text-sm hover:bg-[#5ce685] active:scale-95 duration-150 transition-all flex items-center gap-2">
+                        Contrate-me
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div id="contact-menu"
+                        class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-[60] py-2 transition-all">
+                        <a href="https://www.linkedin.com/in/william-costa-analista-de-dados" target="_blank"
+                            class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary">link</span>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:williamfscosta@gmail.com"
+                            class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            E-mail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-32 pb-24 px-6 max-w-[1100px] mx-auto">
+        <!-- Header Section -->
+        <header class="mb-16">
+            <h1 class="font-headline text-5xl font-extrabold tracking-tight text-[#e1e2eb] mb-4">
+                Galeria de <span class="text-secondary">Dashboards</span>
+            </h1>
+            <p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                Explore a coleção completa de soluções analíticas desenvolvidas para transformar dados brutos em
+                decisões estratégicas de alto impacto.
+            </p>
+        </header>
+        <!-- Dashboard Project List -->
+        <div class="space-y-12">
+            <!-- Project 1 -->
+            <article
+                class="group bg-surface-container-low rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-l-4 border-secondary">
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-2/5 aspect-video md:aspect-auto overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                            data-alt="Modern sales analytics dashboard with blue charts"
+                            src="comparativo_salarial.png" />
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="font-headline text-2xl font-bold text-on-surface">Dashboard Comparativo de Salários
+                            </h2>
+                            <span
+                                class="text-xs font-label tracking-widest text-secondary uppercase bg-secondary-container/30 px-3 py-1 rounded-full">Mercado de Dados</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            Análise detalhada de tendências salariais globais e comparativos de remuneração para profissionais de tecnologia, abrangendo senioridade, geografia e modelos de trabalho.
+                        </p>
+                        <div class="flex items-center gap-3 mb-8">
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-secondary">bar_chart</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">Power BI</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-secondary">database</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">SQL</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-secondary">code</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">Python</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <a href="dashboard-details.html"
+                                class="inline-flex items-center gap-2 bg-secondary text-on-secondary font-bold py-3 px-8 rounded-lg hover:bg-secondary/90 transition-all active:scale-95 text-center">
+                                Ver Detalhes
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Project 2 -->
+            <article
+                class="group bg-surface-container-low rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-l-4 border-primary">
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-2/5 aspect-video md:aspect-auto overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                            data-alt="Supply chain logistics optimization map dashboard"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gEVtKQ3JLbv7g8PQFDd_fyMo4I1DBfotBZyJj3EUX1YoKyWR0ZyQerVnBbK5AZFmHM4YTFJn4MzERD0ADNM4v4Hz-NI7YQa_1wh6qMcZl8lscYVLHj5kO2u_dpCbK6w2aqnx_DP5TP6zjVoze44a0swIaV_lBTdvUTMR-h1z8Daq_n8n-7fAkW60pxblf1EOzdfE9ip33yBhZmkmX7l73FhpdjwxDkM_OFMZFJvEjYrVSlRnd1namBqxA_zzn9eguG46HxoiPHMC" />
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="font-headline text-2xl font-bold text-on-surface">Supply Chain Optimizer</h2>
+                            <span
+                                class="text-xs font-label tracking-widest text-primary uppercase bg-primary-container/20 px-3 py-1 rounded-full">Logística</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            Monitoramento em tempo real da cadeia de suprimentos, reduzindo custos de transporte em 15%
+                            através de roteirização inteligente e controle rigoroso de estoque mínimo.
+                        </p>
+                        <div class="flex items-center gap-3 mb-8">
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-primary">analytics</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">Power BI</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-primary">terminal</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">Python (Pandas)</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <a href="supply-chain-details.html"
+                                class="inline-flex items-center gap-2 bg-secondary text-on-secondary font-bold py-3 px-8 rounded-lg hover:bg-secondary/90 transition-all active:scale-95 text-center">
+                                Ver Detalhes
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Project 3 -->
+            <article
+                class="group bg-surface-container-low rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-l-4 border-tertiary">
+                <div class="flex flex-col md:flex-row">
+                    <div class="w-full md:w-2/5 aspect-video md:aspect-auto overflow-hidden">
+                        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                            data-alt="Financial data and forecasting spreadsheets"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCOPuY8NsAwP_F640tbtaxOAETbrHwWJW2SGBOrQG0vpr-o4UOy2j2gpFo3rbqZhH0J85pAD_uATItLSnJWUv-NI_EI0tQCsnTJNo1RWKbparFc-7y-LHzBz9RP9L1hzkYVVPuYOksF-ysLMtKG3azO3xaW20VvTTkFMJgxOmI-LM4TOm4kd2KWfXhaXfzaaEeBTzeyqozWquF0PVsCkcBWs1Xyhmn4aniuQKqkU7kB-YfKdcUIaWZqMuPa4hpGbafgQnE3Glt-fZG" />
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="font-headline text-2xl font-bold text-on-surface">Financial Forecasting</h2>
+                            <span
+                                class="text-xs font-label tracking-widest text-tertiary uppercase bg-tertiary-container/20 px-3 py-1 rounded-full">Finanças</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
+                            Modelo preditivo de fluxo de caixa com margem de erro inferior a 3%. Análise de DRE dinâmico
+                            e simulações de cenários macroeconômicos para planejamento anual.
+                        </p>
+                        <div class="flex items-center gap-3 mb-8">
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-tertiary">show_chart</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">Power BI</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-1.5 px-2 py-1 bg-surface-container rounded-lg border border-outline-variant/15">
+                                <span class="material-symbols-outlined text-sm text-tertiary">storage</span>
+                                <span class="text-[10px] font-medium text-on-surface-variant">SQL Server</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <a href="financial-details.html"
+                                class="inline-flex items-center gap-2 bg-secondary text-on-secondary font-bold py-3 px-8 rounded-lg hover:bg-secondary/90 transition-all active:scale-95 text-center">
+                                Ver Detalhes
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!-- Pagination/Load More (Simplified for professional look) -->
+        <div class="mt-20 flex justify-center">
+            <button
+                class="group flex items-center gap-3 text-secondary font-bold py-4 px-10 border-2 border-secondary/30 rounded-full hover:bg-secondary/5 transition-all">
+                Carregar mais projetos
+                <span
+                    class="material-symbols-outlined group-hover:rotate-180 transition-transform duration-500">expand_more</span>
+            </button>
+        </div>
+    </main>
+    <!-- Footer Component -->
+    <footer class="w-full py-12 border-t border-[#1d2026]/15 bg-[#10131a]">
+        <div class="flex flex-col items-center gap-4 w-full">
+            <div class="flex gap-8">
+                <a class="font-inter text-xs tracking-widest uppercase text-[#b0c6ff]/60 hover:text-[#75ff9e] transition-colors"
+                    href="#">Privacy Policy</a>
+                <a class="font-inter text-xs tracking-widest uppercase text-[#b0c6ff]/60 hover:text-[#75ff9e] transition-colors"
+                    href="#">Terms of Service</a>
+            </div>
+            <div class="font-inter text-xs tracking-widest uppercase text-[#b0c6ff] opacity-80">
+                © 2024 Ver Todos Dashboards • The Silent Analyst
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleContactDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('contact-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Close on click outside
+        window.addEventListener('click', () => {
+            document.getElementById('contact-menu')?.classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>

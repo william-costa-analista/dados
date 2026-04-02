@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>William S. Costa | Analista de Dados Portfolio</title>
+    <meta name="description"
+        content="Portfolio profissional de William S. Costa, Analista de Dados especialista em Power BI, Python e SQL. Transformando dados em decisões estratégicas.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.com/index.html">
+    <meta property="og:title" content="William S. Costa | Analista de Dados">
+    <meta property="og:description" content="Confira meus dashboards e projetos de análise de dados.">
+    <meta property="og:image" content="https://seusite.com/profile_final.jpg">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0f172a",
+                        forest: "#064e3b",
+                        "emerald-accent": "#10b981",
+                        mint: "#dcfce7",
+                        "error-container": "#93000a",
+                        "surface-variant": "#34343d",
+                        "surface-bright": "#393841",
+                        "tertiary-fixed-dim": "#ffb787",
+                        "primary-container": "#2563eb",
+                        "inverse-surface": "#e4e1ed",
+                        "on-surface": "#e4e1ed",
+                        "outline-variant": "#464554",
+                        "surface-dim": "#13131b",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c1c1ff",
+                        "inverse-on-surface": "#302f38",
+                        "on-secondary-fixed-variant": "#414177",
+                        "surface-container": "#1f1f27",
+                        "on-secondary-fixed": "#141449",
+                        "on-error": "#690005",
+                        error: "#ffb4ab",
+                        surface: "#13131b",
+                        "on-primary-container": "#f2efff",
+                        "on-secondary-container": "#b3b3f1",
+                        "on-tertiary-container": "#ffeee6",
+                        "primary-fixed": "#e2dfff",
+                        "tertiary-container": "#ae5500",
+                        "surface-container-highest": "#34343d",
+                        outline: "#918fa0",
+                        "surface-container-low": "#1b1b23",
+                        "surface-tint": "#2563eb",
+                        "on-tertiary-fixed": "#311300",
+                        "on-background": "#e4e1ed",
+                        "on-tertiary-fixed-variant": "#733600",
+                        "surface-container-high": "#2a2932",
+                        secondary: "#2563eb",
+                        "on-primary-fixed": "#0a006b",
+                        "inverse-primary": "#4c4ad5",
+                        "on-tertiary": "#512400",
+                        "tertiary-fixed": "#ffdcc7",
+                        background: "#13131b",
+                        "surface-container-lowest": "#0e0d15",
+                        "on-primary-fixed-variant": "#322dbd",
+                        "primary-fixed-dim": "#2563eb",
+                        "on-secondary": "#2a2a5f",
+                        "secondary-fixed": "#e2dfff",
+                        "on-surface-variant": "#c7c4d7",
+                        tertiary: "#ffb787",
+                        "secondary-container": "#43437a",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        display: "Manrope",
+                        headline: ["Manrope"],
+                        body: ["Inter"],
+                        label: ["Inter"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Navigation Bar -->
+            <header
+                class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-20 py-3">
+                <div class="max-w-[1200px] mx-auto flex items-center justify-between whitespace-nowrap">
+                    <div class="flex items-center gap-3">
+                        <div class="flex items-center justify-center size-10 rounded-lg bg-primary text-white">
+                            <span class="material-symbols-outlined">analytics</span>
+                        </div>
+                        <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">
+                            Analista de Dados</h2>
+                    </div>
+                    <div class="hidden lg:flex flex-1 justify-end gap-8 items-center px-10">
+                        <nav class="flex items-center gap-6">
+                            <a class="hover:text-primary transition-colors text-sm font-medium" href="#sobre">Sobre</a>
+                            <a class="hover:text-primary transition-colors text-sm font-medium"
+                                href="#dashboards">Dashboards</a>
+                            <a class="hover:text-primary transition-colors text-sm font-medium"
+                                href="#codigos">Códigos</a>
+                            <a class="hover:text-primary transition-colors text-sm font-medium"
+                                href="#impacto">Impacto</a>
+                            <a class="hover:text-primary transition-colors text-sm font-medium"
+                                href="#competencias">Competências</a>
+                        </nav>
+                    </div>
+                    <div class="relative inline-block text-left" id="contact-dropdown-container">
+                        <button onclick="toggleContactDropdown(event)" id="contact-btn"
+                            class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-xl h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                            Contrate-me
+                            <span class="material-symbols-outlined ml-1 text-sm">expand_more</span>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div id="contact-menu"
+                            class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl z-[60] py-2 transition-all">
+                            <a href="https://www.linkedin.com/in/william-costa-analista-de-dados" target="_blank"
+                                class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                <span class="material-symbols-outlined text-primary">link</span>
+                                LinkedIn
+                            </a>
+                            <a href="mailto:williamfscosta@gmail.com"
+                                class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                <span class="material-symbols-outlined text-primary">mail</span>
+                                E-mail
+                            </a>
+                            <a href="https://1drv.ms/b/c/53D7CCAFE43FB947/IQCUDtOi0vUUQrDA6AZ4ct5rAckBxJ-tyZ-X_EINBgzy0BM?e=TCIF0L"
+                                target="_blank"
+                                class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                <span class="material-symbols-outlined text-primary">description</span>
+                                Currículo (PDF)
+                            </a>
+                        </div>
+                    </div>
+                    <button
+                        class="flex items-center justify-center rounded-xl h-11 w-11 border border-outline/20 bg-surface-container-highest/20 text-primary hover:bg-primary/10 transition-all dark:text-blue-400"
+                        onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light'); updateThemeIcon()"
+                        aria-label="Alternar Tema">
+                        <span id="theme-icon" class="material-symbols-outlined">light_mode</span>
+                    </button>
+                </div>
+        </div>
+        </header>
+        <main class="flex-1 max-w-[1200px] mx-auto w-full px-4 md:px-10">
+            <!-- Hero Section -->
+            <section class="flex flex-col gap-10 py-16 md:py-24 lg:flex-row items-center" id="sobre">
+                <div class="w-full lg:w-1/2 flex justify-center lg:justify-start">
+                    <div class="relative group">
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                        </div>
+                        <div
+                            class="relative w-[300px] h-[400px] bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden border-4 border-white dark:border-slate-900 shadow-2xl shadow-primary/10">
+                            <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-[1.6] origin-[center_5%]"
+                                data-alt="Vertical portrait of a professional male data analyst smiling"
+                                src="profile_final.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-left">
+                    <div class="space-y-2">
+                        <span
+                            class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase rounded-full">Disponível
+                            para Projetos</span>
+                        <h1
+                            class="text-slate-800 dark:text-white text-4xl md:text-7xl font-black leading-none tracking-tighter">
+                            William S. Costa
+                        </h1>
+                        <h2 class="text-primary text-xl md:text-2xl font-semibold">Analista de Dados</h2>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg max-w-xl">
+                        Especialista em transformar dados complexos em decisões estratégicas através de dashboards
+                        de alto impacto e modelos preditivos eficientes.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#dashboards"
+                            class="flex min-w-[160px] items-center justify-center rounded-xl h-12 px-6 bg-primary text-white font-bold text-lg hover:translate-y-[-2px] transition-all">Ver
+                            Projetos</a>
+                        <a href="https://github.com/willcosta29" target="_blank"
+                            class="flex min-w-[160px] items-center justify-center rounded-xl h-12 px-6 border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-all">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Dashboard -->
+            <section class="py-16 border-t border-slate-200 dark:border-slate-800" id="dashboards">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <!-- Título com Efeito Scanner -->
+                        <div class="relative mb-2" id="dashboards-title">
+                            <!-- Mobile-only plain title -->
+                            <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight md:hidden">Dashboards</h2>
+                            
+                            <!-- Desktop-only dynamic title -->
+                            <div class="hidden md:inline-block relative">
+                                <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight opacity-40 blur-[2px]">Dashboards</h2>
+                                
+                                <div class="scan-reveal absolute top-0 left-0 bottom-0 overflow-hidden w-0" style="transition: width 2s cubic-bezier(0.25, 0.8, 0.25, 1);">
+                                    <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight whitespace-nowrap">Dashboards</h2>
+                                </div>
+
+                                <div class="scan-laser absolute top-0 bottom-0 left-0 w-0 flex items-center overflow-visible pointer-events-none" style="transition: left 2s cubic-bezier(0.25, 0.8, 0.25, 1);">
+                                    <div class="absolute right-0 h-[120%] w-[2px] bg-primary shadow-[0_0_12px_2px_theme(colors.primary)] top-[-10%] rounded-full"></div>
+                                    <div class="absolute right-[-14px] text-primary transition-opacity duration-500 opacity-100 drop-shadow-[0_0_8px_theme(colors.primary)]" id="dashboards-scanner-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <path d="m21 21-4.3-4.3"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-slate-500">Visualizações interativas e Business Intelligence</p>
+                    </div>
+                    <a class="text-primary font-semibold flex items-center gap-1 hover:underline"
+                        href="all-dashboards.html">Ver todos
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <a href="dashboard-details.html"
+                        class="group/card flex flex-col gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all">
+                        <div class="relative overflow-hidden rounded-xl aspect-video bg-slate-100 dark:bg-slate-800">
+                            <!-- Imagem Padrão: Clara no mobile, Desfocada no Desktop -->
+                            <img class="w-full h-full object-cover group-hover/card:scale-105 transition-all duration-700 md:blur-[3px] md:grayscale md:brightness-[0.6] md:group-hover/card:blur-[2px]"
+                                data-alt="Screenshot of a complex Power BI sales dashboard"
+                                src="comparativo_salarial.png" />
+                            
+                            <!-- Imagem Nítida Sobreposta (Desktop Hover) -->
+                            <div class="hidden md:block absolute inset-0 z-10 [clip-path:inset(0_100%_0_0)] group-hover/card:[clip-path:inset(0_0_0_0)] transition-all duration-[800ms] ease-in-out pointer-events-none">
+                                <img class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" src="comparativo_salarial.png" />
+                            </div>
+
+                            <!-- O Laser Scanner -->
+                            <div class="hidden md:flex absolute inset-y-0 left-0 w-0 group-hover/card:w-full transition-all duration-[800ms] ease-in-out items-center pointer-events-none z-20 overflow-visible">
+                                <div class="absolute right-0 h-full w-[2px] bg-primary shadow-[0_0_12px_2px_theme(colors.primary)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
+                                <div class="absolute right-[-14px] text-primary opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_theme(colors.primary)]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <path d="m21 21-4.3-4.3"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-slate-900 dark:text-white text-xl font-bold">Análise Comparativa de Salários
+                            </h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm line-clamp-2">Análise detalhada de
+                                tendências salariais globais e comparativos de remuneração para profissionais de dados.
+                            </p>
+                        </div>
+                    </a>
+                    <!-- Card 2: Supply Chain Optimizer (Commented Out) -->
+                    <!--
+                    <a href="supply-chain-details.html"
+                        class="group/card flex flex-col gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all">
+                        ... (Oculto)
+                    </a>
+                    -->
+
+                    <!-- Placeholder: Em Breve 1 -->
+                    <div class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-700 min-h-[300px]">
+                        <div class="flex items-center gap-4 animate-pulse">
+                            <span class="text-4xl text-amber-500">🚧</span>
+                            <span class="text-xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Em Breve...</span>
+                            <span class="text-4xl text-amber-500">🚧</span>
+                        </div>
+                        <div class="w-12 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-primary w-1/2 animate-[loading_1.5s_infinite_ease-in-out]"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Financial Forecasting (Commented Out) -->
+                    <!--
+                    <a href="financial-details.html"
+                        class="group/card flex flex-col gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all">
+                        ... (Oculto)
+                    </a>
+                    -->
+
+                    <!-- Placeholder: Em Breve 2 -->
+                    <div class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-700 min-h-[300px]">
+                        <div class="flex items-center gap-4 animate-pulse">
+                            <span class="text-4xl text-amber-500">🚧</span>
+                            <span class="text-xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Em Breve...</span>
+                            <span class="text-4xl text-amber-500">🚧</span>
+                        </div>
+                        <div class="w-12 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div class="h-full bg-primary w-1/2 animate-[loading_1.5s_infinite_ease-in-out_0.5s]"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Formação Section (Updated) -->
+            <section class="py-24 border-t border-slate-200 dark:border-slate-800">
+                <div class="max-w-[1000px] mx-auto">
+                    <h2
+                        class="text-slate-900 dark:text-white text-2xl font-light tracking-[0.2em] mb-16 text-center uppercase">
+                        Formação &amp; Certificações</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+                        <!-- Item 1: Novo Curso Profissionalizante -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div
+                                class="mb-8 p-6 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 transition-all duration-500 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                            </div>
+                            <div class="space-y-3">
+                                <p
+                                    class="text-[10px] uppercase tracking-[0.3em] font-bold text-emerald-600/80 dark:text-emerald-500/80">
+                                    Curso Profissionalizante</p>
+                                <h3 class="text-slate-900 dark:text-white text-base font-semibold leading-relaxed">
+                                    Analista de Dados</h3>
+                                <div class="w-8 h-[1px] bg-emerald-200 dark:bg-emerald-800 mx-auto mt-4"></div>
+                            </div>
+                        </div>
+                        <!-- Item 2: Graduação -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div
+                                class="mb-8 p-6 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 transition-all duration-500 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/50">
+                                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewbox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="1.5"></path>
+                                    <path
+                                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                </svg>
+                            </div>
+                            <div class="space-y-3">
+                                <p
+                                    class="text-[10px] uppercase tracking-[0.3em] font-bold text-emerald-600/80 dark:text-emerald-500/80">
+                                    GRADUAÇÃO</p>
+                                <h3 class="text-slate-900 dark:text-white text-base font-semibold leading-relaxed">
+                                    Ciência de Dados</h3>
+                                <div class="w-8 h-[1px] bg-emerald-200 dark:bg-emerald-800 mx-auto mt-4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Timelapse de Desenvolvimento (Commented Out) -->
+            <!--
+            <section class="py-16 border-t border-slate-200 dark:border-slate-800" id="codigos">
+                ... (Oculto)
+            </section>
+            -->
+            <!-- Added Horizontal Row of Skill Buttons -->
+            <div class="flex justify-center gap-4 py-8">
+                <button
+                    class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-md hover:translate-y-[-2px] transition-all">
+                    <span class="material-symbols-outlined text-xl">database</span> SQL
+                </button>
+                <button
+                    class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-md hover:translate-y-[-2px] transition-all">
+                    <span class="material-symbols-outlined text-xl">terminal</span> Python
+                </button>
+                <button
+                    class="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-md hover:translate-y-[-2px] transition-all">
+                    <span class="material-symbols-outlined text-xl">table_chart</span> Excel
+                </button>
+            </div>
+            <!-- Impact & Insights (Commented Out) -->
+            <!--
+            <section class="py-16" id="impacto">
+                ... (Oculto)
+            </section>
+            -->
+            <!-- Toolbox / Ferramentas -->
+            <section class="py-16 border-t border-slate-200 dark:border-slate-800" id="competencias">
+                <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-10 text-center">Minha
+                    Caixa de Ferramentas</h2>
+                <div
+                    class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all">
+                    <div class="flex flex-col items-center gap-2">
+                        <div
+                            class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
+                            <span class="material-symbols-outlined text-3xl text-primary">database</span>
+                        </div>
+                        <span class="text-xs font-bold uppercase">SQL</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div
+                            class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
+                            <span class="material-symbols-outlined text-3xl text-primary">terminal</span>
+                        </div>
+                        <span class="text-xs font-bold uppercase">Python</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div
+                            class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
+                            <span class="material-symbols-outlined text-3xl text-primary">functions</span>
+                        </div>
+                        <span class="text-xs font-bold uppercase">R</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div
+                            class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
+                            <span class="material-symbols-outlined text-3xl text-primary">bar_chart</span>
+                        </div>
+                        <span class="text-xs font-bold uppercase">Power BI</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div
+                            class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
+                            <span class="material-symbols-outlined text-3xl text-primary">table_chart</span>
+                        </div>
+                        <span class="text-xs font-bold uppercase">Excel</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div
+                            class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
+                            <span class="material-symbols-outlined text-3xl text-primary">calculate</span>
+                        </div>
+                        <span class="text-xs font-bold uppercase">ESTATÍSTICA</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12">
+            <div
+                class="max-w-[1200px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center justify-center size-8 rounded bg-primary text-white">
+                        <span class="material-symbols-outlined text-sm">analytics</span>
+                    </div>
+                    <h2 class="text-slate-900 dark:text-white text-lg font-bold">William S. Costa</h2>
+                </div>
+                <div class="flex gap-6">
+                    <a class="text-slate-500 hover:text-primary transition-colors"
+                        href="https://www.linkedin.com/in/william-costa-analista-de-dados" target="_blank">LinkedIn</a>
+                    <a class="text-slate-500 hover:text-primary transition-colors" href="https://github.com/willcosta29"
+                        target="_blank">GitHub</a>
+                    <a class="text-slate-500 hover:text-primary transition-colors"
+                        href="mailto:williamfscosta@gmail.com">Email</a>
+                </div>
+                <p class="text-slate-500 text-sm">© 2024 Design Portfolio. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script>
+        function toggleContactDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('contact-menu');
+            menu.classList.toggle('hidden');
+            // Fechar o outro se estiver aberto
+            document.getElementById('hero-contact-menu')?.classList.add('hidden');
+        }
+
+        function toggleHeroContactDropdown(event) {
+            event.stopPropagation();
+            const menu = document.getElementById('hero-contact-menu');
+            menu.classList.toggle('hidden');
+            // Fechar o outro se estiver aberto
+            document.getElementById('contact-menu')?.classList.add('hidden');
+        }
+
+        // Fechar ao clicar fora
+        window.addEventListener('click', () => {
+            document.getElementById('contact-menu')?.classList.add('hidden');
+            document.getElementById('hero-contact-menu')?.classList.add('hidden');
+        });
+
+        // Atualizar ícone do tema
+        function updateThemeIcon() {
+            const icon = document.getElementById('theme-icon');
+            if (document.documentElement.classList.contains('dark')) {
+                icon.textContent = 'light_mode';
+            } else {
+                icon.textContent = 'dark_mode';
+            }
+        }
+        
+        // Inicializar ícone
+        updateThemeIcon();
+        
+        // Efeito Visual de Scanner no Título 'Dashboards'
+        document.addEventListener('DOMContentLoaded', () => {
+            const scanReveal = document.querySelector('.scan-reveal');
+            const scanLaser = document.querySelector('.scan-laser');
+            const scanIcon = document.getElementById('dashboards-scanner-icon');
+            const titleContainer = document.getElementById('dashboards-title');
+
+            if (!scanReveal || !scanLaser || !titleContainer) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        scanIcon.style.opacity = '1';
+                        // Delay curto para a troca visual
+                        setTimeout(() => {
+                            scanReveal.style.width = '100%';
+                            scanLaser.style.left = '100%';
+                        }, 100);
+
+                        // Esmaece a lupa quando terminar (2s anim + 100ms)
+                        setTimeout(() => {
+                            scanIcon.style.opacity = '0';
+                        }, 2100);
+                    } else {
+                        // Reseta a animação ao sair de tela repetidas vezes
+                        scanReveal.style.width = '0';
+                        scanLaser.style.left = '0';
+                        scanIcon.style.opacity = '0';
+                    }
+                });
+            }, { threshold: 0.5 }); // Deflagra quando 50% visível
+
+            observer.observe(titleContainer);
+        });
+    </script>
+</body>
+
+</html>
