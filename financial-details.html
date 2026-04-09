@@ -5,7 +5,9 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Financial Forecasting | Planejamento Estratégico</title>
-  <meta name="description" content="Análise avançada de séries temporais e planejamento financeiro estratégico com alta precisão.">
+  <meta name="description"
+    content="Análise avançada de séries temporais e planejamento financeiro estratégico com alta precisão.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='34' y='48' width='10' height='28' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Crect x='48' y='38' width='10' height='38' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Crect x='62' y='14' width='10' height='62' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Cpath d='M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25' stroke='%2375ff9e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <meta property="og:title" content="Financial Forecasting">
   <meta property="og:description" content="Inteligência financeira baseada em dados reais.">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -191,13 +193,60 @@
     .dark .toggle-icon::before {
       content: "dark_mode";
     }
+
+    /* Glass Logo Styling */
+    .glass-logo {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html.dark .glass-logo {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .glass-logo:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        transform: translateY(-1px);
+    }
+
+    .logo-line {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+        transition: none;
+    }
+
+    .bar-anim {
+        fill-opacity: 0.6;
+        transition: none;
+    }
   </style>
 </head>
 
 <body class="font-body antialiased transition-colors duration-300">
   <nav class="fixed top-0 w-full z-50 bg-[#10131a] font-headline antialiased tracking-tight shadow-none border-none">
     <div class="flex items-center justify-between px-8 h-16 w-full max-w-none bg-[#191c22]">
-      <div class="text-xl font-bold tracking-tighter text-[#e1e2eb]">Financial Intelligence</div>
+      <div class="flex items-center gap-3 group/logo">
+        <div class="glass-logo flex items-center justify-center size-10 rounded-lg text-primary">
+            <svg viewBox="0 0 100 80" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="34" y="48" width="10" height="28" rx="1.5" fill="currentColor" fill-opacity="0.3" class="bar-anim"/>
+                <rect x="48" y="38" width="10" height="38" rx="1.5" fill="currentColor" fill-opacity="0.3" class="bar-anim"/>
+                <rect x="62" y="14" width="10" height="62" rx="1.5" fill="currentColor" fill-opacity="0.3" class="bar-anim"/>
+                <path d="M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25" 
+                      stroke="currentColor" 
+                      stroke-width="3" 
+                      stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      class="logo-line"/>
+            </svg>
+        </div>
+        <h2 class="text-[#e1e2eb] text-lg font-bold leading-tight tracking-tight">
+            Financial Intelligence</h2>
+      </div>
       <div class="hidden md:flex items-center gap-8">
         <a class="text-[#b0c6ff] hover:text-[#e1e2eb] transition-colors" href="index.html">Portfólio</a>
         <a class="text-[#75ff9e] border-b-2 border-[#75ff9e] pb-1" href="#">Insights</a>

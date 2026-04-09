@@ -6,7 +6,9 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Galeria de Dashboards | Portfolio William S. Costa</title>
-    <meta name="description" content="Coleção completa de dashboards de Business Intelligence e ferramentas analíticas desenvolvidas por William S. Costa.">
+    <meta name="description"
+        content="Coleção completa de dashboards de Business Intelligence e ferramentas analíticas desenvolvidas por William S. Costa.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='34' y='48' width='10' height='28' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Crect x='48' y='38' width='10' height='38' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Crect x='62' y='14' width='10' height='62' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Cpath d='M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25' stroke='%2375ff9e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
     <meta property="og:title" content="Galeria de Dashboards">
     <meta property="og:description" content="Navegue pelos meus projetos de visualização e análise de dados.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -86,13 +88,49 @@
         }
 
         @keyframes loading {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(200%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(200%);
+            }
         }
 
         body {
             background-color: #10131a;
             color: #e4e1ed;
+        }
+
+        /* Glass Logo Styling */
+        .glass-logo {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark .glass-logo {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-logo:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .logo-line {
+            stroke-dasharray: none;
+            stroke-dashoffset: 0;
+            transition: none;
+        }
+
+        .bar-anim {
+            fill-opacity: 0.6;
+            transition: none;
         }
     </style>
 </head>
@@ -101,8 +139,22 @@
     <!-- TopNavBar Component -->
     <nav class="fixed top-0 w-full z-50 bg-[#10131a] shadow-2xl shadow-black/40">
         <div class="flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto">
-            <div class="text-xl font-bold text-[#e1e2eb] tracking-tighter">
-                Ver Todos Dashboards
+            <div class="flex items-center gap-3 group/logo">
+                <div class="glass-logo flex items-center justify-center size-10 rounded-lg text-secondary">
+                    <svg viewBox="0 0 100 80" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="34" y="48" width="10" height="28" rx="1.5" fill="currentColor" fill-opacity="0.3" class="bar-anim"/>
+                        <rect x="48" y="38" width="10" height="38" rx="1.5" fill="currentColor" fill-opacity="0.3" class="bar-anim"/>
+                        <rect x="62" y="14" width="10" height="62" rx="1.5" fill="currentColor" fill-opacity="0.3" class="bar-anim"/>
+                        <path d="M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25" 
+                              stroke="currentColor" 
+                              stroke-width="3" 
+                              stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              class="logo-line"/>
+                    </svg>
+                </div>
+                <h2 class="text-[#e1e2eb] text-lg font-bold leading-tight tracking-tight">
+                    Galeria de Dashboards</h2>
             </div>
             <div class="hidden md:flex items-center gap-8 font-manrope text-sm font-medium tracking-tight">
                 <a class="text-[#b0c6ff] hover:text-[#e1e2eb] transition-colors" href="index.html">Home</a>
@@ -157,13 +209,16 @@
                     </div>
                     <div class="w-full md:w-3/5 p-8 flex flex-col">
                         <div class="flex justify-between items-start mb-4">
-                            <h2 class="font-headline text-2xl font-bold text-on-surface">Dashboard Comparativo de Salários
+                            <h2 class="font-headline text-2xl font-bold text-on-surface">Dashboard Comparativo de
+                                Salários
                             </h2>
                             <span
-                                class="text-xs font-label tracking-widest text-secondary uppercase bg-secondary-container/30 px-3 py-1 rounded-full">Mercado de Dados</span>
+                                class="text-xs font-label tracking-widest text-secondary uppercase bg-secondary-container/30 px-3 py-1 rounded-full">Mercado
+                                de Dados</span>
                         </div>
                         <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
-                            Análise detalhada de tendências salariais globais e comparativos de remuneração para profissionais de tecnologia, abrangendo senioridade, geografia e modelos de trabalho.
+                            Análise detalhada de tendências salariais globais e comparativos de remuneração para
+                            profissionais de tecnologia, abrangendo senioridade, geografia e modelos de trabalho.
                         </p>
                         <div class="flex items-center gap-3 mb-8">
                             <div
@@ -201,16 +256,19 @@
             -->
 
             <!-- Placeholder: Em Breve 1 -->
-            <div class="flex flex-col items-center justify-center gap-6 p-12 rounded-xl bg-surface-container-low border-l-4 border-dashed border-primary/50 min-h-[300px] shadow-xl">
+            <div
+                class="flex flex-col items-center justify-center gap-6 p-12 rounded-xl bg-surface-container-low border-l-4 border-dashed border-primary/50 min-h-[300px] shadow-xl">
                 <div class="flex items-center gap-6 animate-pulse">
                     <span class="text-6xl text-amber-500">🚧</span>
-                    <span class="text-2xl font-headline font-bold text-on-surface-variant tracking-[0.2em] uppercase">Em Breve...</span>
+                    <span class="text-2xl font-headline font-bold text-on-surface-variant tracking-[0.2em] uppercase">Em
+                        Breve...</span>
                     <span class="text-6xl text-amber-500">🚧</span>
                 </div>
                 <div class="w-64 h-2 bg-surface-container rounded-full overflow-hidden">
                     <div class="h-full bg-secondary w-1/3 animate-[loading_1.5s_infinite_ease-in-out]"></div>
                 </div>
-                <p class="text-on-surface-variant text-sm font-medium opacity-60 italic">Otimizando a cadeia de suprimentos analítica...</p>
+                <p class="text-on-surface-variant text-sm font-medium opacity-60 italic">Otimizando a cadeia de
+                    suprimentos analítica...</p>
             </div>
 
             <!-- Project 3 (Commented Out) -->
@@ -222,16 +280,19 @@
             -->
 
             <!-- Placeholder: Em Breve 2 -->
-            <div class="flex flex-col items-center justify-center gap-6 p-12 rounded-xl bg-surface-container-low border-l-4 border-dashed border-tertiary/50 min-h-[300px] shadow-xl">
+            <div
+                class="flex flex-col items-center justify-center gap-6 p-12 rounded-xl bg-surface-container-low border-l-4 border-dashed border-tertiary/50 min-h-[300px] shadow-xl">
                 <div class="flex items-center gap-6 animate-pulse">
                     <span class="text-6xl text-amber-500">🚧</span>
-                    <span class="text-2xl font-headline font-bold text-on-surface-variant tracking-[0.2em] uppercase">Em Breve...</span>
+                    <span class="text-2xl font-headline font-bold text-on-surface-variant tracking-[0.2em] uppercase">Em
+                        Breve...</span>
                     <span class="text-6xl text-amber-500">🚧</span>
                 </div>
                 <div class="w-64 h-2 bg-surface-container rounded-full overflow-hidden">
                     <div class="h-full bg-secondary w-1/3 animate-[loading_1.5s_infinite_ease-in-out_0.5s]"></div>
                 </div>
-                <p class="text-on-surface-variant text-sm font-medium opacity-60 italic">Projetando cenários financeiros futuros...</p>
+                <p class="text-on-surface-variant text-sm font-medium opacity-60 italic">Projetando cenários financeiros
+                    futuros...</p>
             </div>
         </div>
         <!-- Pagination/Load More (Simplified for professional look) -->

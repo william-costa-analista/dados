@@ -8,6 +8,8 @@
     <title>William S. Costa | Analista de Dados Portfolio</title>
     <meta name="description"
         content="Portfolio profissional de William S. Costa, Analista de Dados especialista em Power BI, Python e SQL. Transformando dados em decisões estratégicas.">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='34' y='48' width='10' height='28' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Crect x='48' y='38' width='10' height='38' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Crect x='62' y='14' width='10' height='62' rx='1.5' fill='%2375ff9e' fill-opacity='0.6'/%3E%3Cpath d='M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25' stroke='%2375ff9e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -101,9 +103,15 @@
     </script>
     <style>
         @keyframes loading {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(200%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(200%);
+            }
         }
+
         body {
             font-family: 'Public Sans', sans-serif;
         }
@@ -112,6 +120,37 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Glass Logo Styling */
+        .glass-logo {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark .glass-logo {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-logo:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .logo-line {
+            stroke-dasharray: none;
+            stroke-dashoffset: 0;
+            transition: none;
+        }
+
+        .bar-anim {
+            fill-opacity: 0.6;
+            transition: none;
         }
     </style>
 </head>
@@ -124,9 +163,20 @@
             <header
                 class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-20 py-3">
                 <div class="max-w-[1200px] mx-auto flex items-center justify-between whitespace-nowrap">
-                    <div class="flex items-center gap-3">
-                        <div class="flex items-center justify-center size-10 rounded-lg bg-primary text-white">
-                            <span class="material-symbols-outlined">analytics</span>
+                    <div class="flex items-center gap-3 group/logo">
+                        <div
+                            class="glass-logo flex items-center justify-center size-10 rounded-lg text-primary dark:text-blue-400">
+                            <svg viewBox="0 0 100 80" class="w-7 h-7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="34" y="48" width="10" height="28" rx="1.5" fill="currentColor"
+                                    fill-opacity="0.3" class="bar-anim" />
+                                <rect x="48" y="38" width="10" height="38" rx="1.5" fill="currentColor"
+                                    fill-opacity="0.3" class="bar-anim" />
+                                <rect x="62" y="14" width="10" height="62" rx="1.5" fill="currentColor"
+                                    fill-opacity="0.3" class="bar-anim" />
+                                <path d="M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="logo-line" />
+                            </svg>
                         </div>
                         <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">
                             Analista de Dados</h2>
@@ -229,20 +279,32 @@
                         <!-- Título com Efeito Scanner -->
                         <div class="relative mb-2" id="dashboards-title">
                             <!-- Mobile-only plain title -->
-                            <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight md:hidden">Dashboards</h2>
-                            
+                            <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight md:hidden">
+                                Dashboards</h2>
+
                             <!-- Desktop-only dynamic title -->
                             <div class="hidden md:inline-block relative">
-                                <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight opacity-40 blur-[2px]">Dashboards</h2>
-                                
-                                <div class="scan-reveal absolute top-0 left-0 bottom-0 overflow-hidden w-0" style="transition: width 2s cubic-bezier(0.25, 0.8, 0.25, 1);">
-                                    <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight whitespace-nowrap">Dashboards</h2>
+                                <h2
+                                    class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight opacity-40 blur-[2px]">
+                                    Dashboards</h2>
+
+                                <div class="scan-reveal absolute top-0 left-0 bottom-0 overflow-hidden w-0"
+                                    style="transition: width 2s cubic-bezier(0.25, 0.8, 0.25, 1);">
+                                    <h2
+                                        class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight whitespace-nowrap">
+                                        Dashboards</h2>
                                 </div>
 
-                                <div class="scan-laser absolute top-0 bottom-0 left-0 w-0 flex items-center overflow-visible pointer-events-none" style="transition: left 2s cubic-bezier(0.25, 0.8, 0.25, 1);">
-                                    <div class="absolute right-0 h-[120%] w-[2px] bg-primary shadow-[0_0_12px_2px_theme(colors.primary)] top-[-10%] rounded-full"></div>
-                                    <div class="absolute right-[-14px] text-primary transition-opacity duration-500 opacity-100 drop-shadow-[0_0_8px_theme(colors.primary)]" id="dashboards-scanner-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <div class="scan-laser absolute top-0 bottom-0 left-0 w-0 flex items-center overflow-visible pointer-events-none"
+                                    style="transition: left 2s cubic-bezier(0.25, 0.8, 0.25, 1);">
+                                    <div
+                                        class="absolute right-0 h-[120%] w-[2px] bg-primary shadow-[0_0_12px_2px_theme(colors.primary)] top-[-10%] rounded-full">
+                                    </div>
+                                    <div class="absolute right-[-14px] text-primary transition-opacity duration-500 opacity-100 drop-shadow-[0_0_8px_theme(colors.primary)]"
+                                        id="dashboards-scanner-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
                                             <circle cx="11" cy="11" r="8"></circle>
                                             <path d="m21 21-4.3-4.3"></path>
                                         </svg>
@@ -265,17 +327,25 @@
                             <img class="w-full h-full object-cover group-hover/card:scale-105 transition-all duration-700 md:blur-[3px] md:grayscale md:brightness-[0.6] md:group-hover/card:blur-[2px]"
                                 data-alt="Screenshot of a complex Power BI sales dashboard"
                                 src="comparativo_salarial.png" />
-                            
+
                             <!-- Imagem Nítida Sobreposta (Desktop Hover) -->
-                            <div class="hidden md:block absolute inset-0 z-10 [clip-path:inset(0_100%_0_0)] group-hover/card:[clip-path:inset(0_0_0_0)] transition-all duration-[800ms] ease-in-out pointer-events-none">
-                                <img class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700" src="comparativo_salarial.png" />
+                            <div
+                                class="hidden md:block absolute inset-0 z-10 [clip-path:inset(0_100%_0_0)] group-hover/card:[clip-path:inset(0_0_0_0)] transition-all duration-[800ms] ease-in-out pointer-events-none">
+                                <img class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"
+                                    src="comparativo_salarial.png" />
                             </div>
 
                             <!-- O Laser Scanner -->
-                            <div class="hidden md:flex absolute inset-y-0 left-0 w-0 group-hover/card:w-full transition-all duration-[800ms] ease-in-out items-center pointer-events-none z-20 overflow-visible">
-                                <div class="absolute right-0 h-full w-[2px] bg-primary shadow-[0_0_12px_2px_theme(colors.primary)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"></div>
-                                <div class="absolute right-[-14px] text-primary opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_theme(colors.primary)]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <div
+                                class="hidden md:flex absolute inset-y-0 left-0 w-0 group-hover/card:w-full transition-all duration-[800ms] ease-in-out items-center pointer-events-none z-20 overflow-visible">
+                                <div
+                                    class="absolute right-0 h-full w-[2px] bg-primary shadow-[0_0_12px_2px_theme(colors.primary)] opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
+                                </div>
+                                <div
+                                    class="absolute right-[-14px] text-primary opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_8px_theme(colors.primary)]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <circle cx="11" cy="11" r="8"></circle>
                                         <path d="m21 21-4.3-4.3"></path>
                                     </svg>
@@ -299,10 +369,13 @@
                     -->
 
                     <!-- Placeholder: Em Breve 1 -->
-                    <div class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-700 min-h-[300px]">
+                    <div
+                        class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-700 min-h-[300px]">
                         <div class="flex items-center gap-4 animate-pulse">
                             <span class="text-4xl text-amber-500">🚧</span>
-                            <span class="text-xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Em Breve...</span>
+                            <span
+                                class="text-xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Em
+                                Breve...</span>
                             <span class="text-4xl text-amber-500">🚧</span>
                         </div>
                         <div class="w-12 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -319,10 +392,13 @@
                     -->
 
                     <!-- Placeholder: Em Breve 2 -->
-                    <div class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-700 min-h-[300px]">
+                    <div
+                        class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-slate-100/50 dark:bg-slate-800/30 border border-dashed border-slate-300 dark:border-slate-700 min-h-[300px]">
                         <div class="flex items-center gap-4 animate-pulse">
                             <span class="text-4xl text-amber-500">🚧</span>
-                            <span class="text-xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Em Breve...</span>
+                            <span
+                                class="text-xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Em
+                                Breve...</span>
                             <span class="text-4xl text-amber-500">🚧</span>
                         </div>
                         <div class="w-12 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -465,17 +541,28 @@
         <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12">
             <div
                 class="max-w-[1200px] mx-auto px-4 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex items-center gap-3">
-                    <div class="flex items-center justify-center size-8 rounded bg-primary text-white">
-                        <span class="material-symbols-outlined text-sm">analytics</span>
+                <div class="flex items-center gap-3 group/logo">
+                    <div
+                        class="glass-logo flex items-center justify-center size-9 rounded bg-transparent text-primary dark:text-blue-400">
+                        <svg viewBox="0 0 100 80" class="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="34" y="48" width="10" height="28" rx="1.5" fill="currentColor" fill-opacity="0.3"
+                                class="bar-anim" />
+                            <rect x="48" y="38" width="10" height="38" rx="1.5" fill="currentColor" fill-opacity="0.3"
+                                class="bar-anim" />
+                            <rect x="62" y="14" width="10" height="62" rx="1.5" fill="currentColor" fill-opacity="0.3"
+                                class="bar-anim" />
+                            <path d="M 15 75 C 25 72, 32 68, 38 65 C 44 62, 50 72, 58 65 C 68 55, 78 40, 88 25"
+                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                class="logo-line" />
+                        </svg>
                     </div>
                     <h2 class="text-slate-900 dark:text-white text-lg font-bold">William S. Costa</h2>
                 </div>
                 <div class="flex gap-6">
                     <a class="text-slate-500 hover:text-primary transition-colors"
                         href="https://www.linkedin.com/in/william-costa-analista-de-dados" target="_blank">LinkedIn</a>
-                    <a class="text-slate-500 hover:text-primary transition-colors" href="https://github.com/william-costa-analista"
-                        target="_blank">GitHub</a>
+                    <a class="text-slate-500 hover:text-primary transition-colors"
+                        href="https://github.com/william-costa-analista" target="_blank">GitHub</a>
                     <a class="text-slate-500 hover:text-primary transition-colors"
                         href="mailto:williamfscosta@gmail.com">Email</a>
                 </div>
@@ -516,10 +603,10 @@
                 icon.textContent = 'dark_mode';
             }
         }
-        
+
         // Inicializar ícone
         updateThemeIcon();
-        
+
         // Efeito Visual de Scanner no Título 'Dashboards'
         document.addEventListener('DOMContentLoaded', () => {
             const scanReveal = document.querySelector('.scan-reveal');
