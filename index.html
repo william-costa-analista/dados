@@ -165,6 +165,24 @@
             scrollbar-width: none;
             /* Firefox */
         }
+
+        /* Timelapse Gallery Transitions */
+        .timelapse-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timelapse-card:hover {
+            transform: scale(1.08);
+            z-index: 10;
+        }
+
+        .phase-min-btn {
+            transition: all 0.3s ease;
+        }
+
+        .phase-min-btn:hover {
+            transform: translateY(-4px);
+        }
     </style>
 </head>
 
@@ -514,42 +532,146 @@
                         </p>
                     </div>
 
-                    <div class="max-w-[1100px] mx-auto relative group">
-                        <!-- Glow Effect -->
-                        <div
-                            class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-1000">
-                        </div>
-                        <div
-                            class="relative bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl">
-                            <iframe
-                                src="https://1drv.ms/v/c/53D7CCAFE43FB947/IQRYdyOoPBQxRp1t9e2R2PeiAQwik-HK3tpMcGkdesbvjBU?width=1920&height=1080"
-                                class="w-full aspect-video border-0" frameborder="0" scrolling="no"
-                                allowfullscreen></iframe>
+                    <!-- Gallery Container -->
+                    <div id="timelapse-container" class="max-w-[1100px] mx-auto relative px-4">
+
+                        <!-- Main Player (Hidden by default) -->
+                        <div id="video-player-mode" class="hidden flex flex-col gap-8 transition-all duration-700">
                             <div
-                                class="p-6 bg-slate-50/50 dark:bg-slate-900/50 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
-                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                    <div class="flex items-center gap-4">
+                                class="relative bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl">
+                                <button onclick="closeTimelapsePlayer()"
+                                    class="absolute top-4 right-4 z-30 size-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-all backdrop-blur-md">
+                                    <span class="material-symbols-outlined">close</span>
+                                </button>
+                                <div id="main-video-frame" class="w-full aspect-video">
+                                    <!-- Iframe injected here -->
+                                </div>
+                                <div
+                                    class="p-6 bg-slate-50/50 dark:bg-slate-900/50 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                        <div>
+                                            <h4 id="active-video-title"
+                                                class="text-slate-900 dark:text-white font-bold text-xl">Fase 01: ETL
+                                                Process</h4>
+                                            <p id="active-video-desc" class="text-slate-500">Pipeline de extração,
+                                                limpeza e carga de dados</p>
+                                        </div>
+                                        <div class="flex gap-2">
+                                            <span
+                                                class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider rounded-md">Power
+                                                BI</span>
+                                            <span
+                                                class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider rounded-md">DAX</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Miniatures Row for switching -->
+                            <div class="grid grid-cols-3 gap-4 md:gap-6">
+                                <button onclick="switchTimelapseVideo(1)"
+                                    class="phase-min-btn group relative rounded-xl overflow-hidden border-2 border-primary"
+                                    data-phase="1">
+                                    <div
+                                        class="aspect-video bg-slate-800 flex items-center justify-center overflow-hidden">
+                                        <img src="lograpid.png" class="w-full h-full object-cover opacity-50" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span
+                                                class="text-white text-[10px] font-bold uppercase tracking-widest bg-black/40 px-2 py-1 rounded">Fase
+                                                01</span>
+                                        </div>
+                                    </div>
+                                </button>
+                                <button onclick="void(0)"
+                                    class="phase-min-btn group relative rounded-xl overflow-hidden border-2 border-transparent opacity-50 cursor-not-allowed"
+                                    data-phase="2">
+                                    <div class="aspect-video bg-slate-800/50 flex items-center justify-center">
+                                        <span class="text-white/50 text-[10px] font-bold uppercase">Em Breve</span>
+                                    </div>
+                                </button>
+                                <button onclick="void(0)"
+                                    class="phase-min-btn group relative rounded-xl overflow-hidden border-2 border-transparent opacity-50 cursor-not-allowed"
+                                    data-phase="3">
+                                    <div class="aspect-video bg-slate-800/50 flex items-center justify-center">
+                                        <span class="text-white/50 text-[10px] font-bold uppercase">Em Breve</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Initial Gallery Grid -->
+                        <div id="video-gallery-mode" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+                            <!-- Phase 1 -->
+                            <div onclick="openTimelapsePlayer(1)"
+                                class="timelapse-card cursor-pointer group flex flex-col gap-6">
+                                <div
+                                    class="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-900">
+                                    <div
+                                        class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all z-10">
                                         <div
-                                            class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                                            <span class="material-symbols-outlined text-2xl">database</span>
-                                        </div>
-                                        <div class="text-left">
-                                            <h4 class="text-slate-900 dark:text-white font-bold text-lg">Processo ETL:
-                                                LogRapid</h4>
-                                            <p class="text-sm text-slate-500">Pipeline de extração, limpeza e carga de
-                                                dados</p>
+                                            class="size-16 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform">
+                                            <span class="material-symbols-outlined text-3xl">play_arrow</span>
                                         </div>
                                     </div>
-                                    <div class="flex gap-2">
+                                    <img src="lograpid.png"
+                                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
+                                </div>
+                                <div class="text-center space-y-2">
+                                    <span
+                                        class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">Fase
+                                        01</span>
+                                    <h4 class="text-slate-900 dark:text-white font-bold">ETL Process</h4>
+                                </div>
+                            </div>
+
+                            <!-- Phase 2 (Coming Soon) -->
+                            <div
+                                class="timelapse-card group flex flex-col gap-6 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                                <div
+                                    class="relative aspect-video rounded-2xl overflow-hidden border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-800/30 flex flex-col items-center justify-center gap-3">
+                                    <div class="flex items-center gap-2 animate-pulse scale-75">
+                                        <span class="text-2xl">🚧</span>
                                         <span
-                                            class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider rounded-md">Power
-                                            BI</span>
-                                        <span
-                                            class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider rounded-md">Power
-                                            Query</span>
-                                        <span
-                                            class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-bold uppercase tracking-wider rounded-md">DAX</span>
+                                            class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Em
+                                            Breve</span>
+                                        <span class="text-2xl">🚧</span>
                                     </div>
+                                    <div class="w-10 h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-1/2 animate-[loading_1.5s_infinite_ease-in-out]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center space-y-2">
+                                    <span
+                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-500 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">Fase
+                                        02</span>
+                                    <h4 class="text-slate-500 dark:text-slate-400 font-bold">Modeling</h4>
+                                </div>
+                            </div>
+
+                            <!-- Phase 3 (Coming Soon) -->
+                            <div
+                                class="timelapse-card group flex flex-col gap-6 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                                <div
+                                    class="relative aspect-video rounded-2xl overflow-hidden border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-800/30 flex flex-col items-center justify-center gap-3">
+                                    <div class="flex items-center gap-2 animate-pulse scale-75">
+                                        <span class="text-2xl">🚧</span>
+                                        <span
+                                            class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Em
+                                            Breve</span>
+                                        <span class="text-2xl">🚧</span>
+                                    </div>
+                                    <div class="w-10 h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div
+                                            class="h-full bg-primary w-1/2 animate-[loading_1.5s_infinite_ease-in-out_0.5s]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center space-y-2">
+                                    <span
+                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-500 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">Fase
+                                        03</span>
+                                    <h4 class="text-slate-500 dark:text-slate-400 font-bold">Visualization</h4>
                                 </div>
                             </div>
                         </div>
@@ -732,6 +854,77 @@
 
             observer.observe(titleContainer);
         });
+
+        // Lógica da Galeria de Timelapse
+        const timelapseData = {
+            1: {
+                title: "Fase 01: ETL Process",
+                desc: "Pipeline de extração, limpeza e carga de dados no LogRapid",
+                url: "https://1drv.ms/v/c/53D7CCAFE43FB947/IQRYdyOoPBQxRp1t9e2R2PeiAQwik-HK3tpMcGkdesbvjBU?width=1920&height=1080"
+            },
+            2: {
+                title: "Fase 02: Modeling",
+                desc: "Em breve: Construção do modelo dimensional e medidas DAX",
+                url: ""
+            },
+            3: {
+                title: "Fase 03: Visualization",
+                desc: "Em breve: Design de interface e storytelling com dados",
+                url: ""
+            }
+        };
+
+        function openTimelapsePlayer(phase) {
+            const gallery = document.getElementById('video-gallery-mode');
+            const player = document.getElementById('video-player-mode');
+
+            if (timelapseData[phase].url === "") return;
+
+            gallery.classList.add('hidden');
+            player.classList.remove('hidden');
+
+            switchTimelapseVideo(phase);
+
+            // Scroll suave para a seção
+            document.getElementById('timelapse').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeTimelapsePlayer() {
+            const gallery = document.getElementById('video-gallery-mode');
+            const player = document.getElementById('video-player-mode');
+            const videoFrame = document.getElementById('main-video-frame');
+
+            player.classList.add('hidden');
+            gallery.classList.remove('hidden');
+            videoFrame.innerHTML = ""; // Para o vídeo
+        }
+
+        function switchTimelapseVideo(phase) {
+            const data = timelapseData[phase];
+            if (data.url === "") return;
+
+            const videoFrame = document.getElementById('main-video-frame');
+            const title = document.getElementById('active-video-title');
+            const desc = document.getElementById('active-video-desc');
+
+            videoFrame.innerHTML = `<iframe src="${data.url}" class="w-full h-full border-0" frameborder="0" scrolling="no" allowfullscreen></iframe>`;
+            title.textContent = data.title;
+            desc.textContent = data.desc;
+
+            // Atualizar botões de miniatura
+            document.querySelectorAll('.phase-min-btn').forEach(btn => {
+                const btnPhase = btn.getAttribute('data-phase');
+                if (btnPhase == phase) {
+                    btn.classList.add('border-primary');
+                    btn.classList.remove('border-transparent');
+                    btn.classList.remove('opacity-50');
+                } else if (timelapseData[btnPhase].url !== "") {
+                    btn.classList.remove('border-primary');
+                    btn.classList.add('border-transparent');
+                    btn.classList.remove('opacity-50');
+                }
+            });
+        }
     </script>
 </body>
 
