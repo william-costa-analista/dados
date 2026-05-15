@@ -228,11 +228,35 @@
                                     <span class="material-symbols-outlined text-primary">link</span>
                                     LinkedIn
                                 </a>
-                                <a href="mailto:data.analyst@williamscosta.dev"
-                                    class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                    <span class="material-symbols-outlined text-primary">mail</span>
-                                    E-mail
-                                </a>
+                                <!-- Email Field with Copy Button -->
+                                <div class="px-4 py-3 flex flex-col gap-2">
+                                    <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">E-mail</span>
+                                    <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-100 dark:border-slate-700">
+                                        <span class="text-[11px] font-medium text-slate-600 dark:text-slate-300 truncate">data.analyst@williamscosta.dev</span>
+                                        <button onclick="copyToClipboard('data.analyst@williamscosta.dev', this)" 
+                                            class="flex items-center justify-center shrink-0 size-7 rounded-md bg-white dark:bg-slate-700 text-primary border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-600 transition-all active:scale-95" 
+                                            title="Copiar e-mail">
+                                            <span class="material-symbols-outlined text-sm">content_copy</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- WhatsApp Field -->
+                                <div class="px-4 py-3 flex flex-col gap-2 border-t border-slate-100 dark:border-slate-800">
+                                    <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">WhatsApp</span>
+                                    <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-100 dark:border-slate-700">
+                                        <span class="text-[11px] font-medium text-slate-600 dark:text-slate-300 truncate">75 99288-8693</span>
+                                        <button onclick="copyToClipboard('75992888693', this)" 
+                                            class="flex items-center justify-center shrink-0 size-7 rounded-md bg-white dark:bg-slate-700 text-primary border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-600 transition-all active:scale-95" 
+                                            title="Copiar número">
+                                            <span class="material-symbols-outlined text-sm">content_copy</span>
+                                        </button>
+                                        <a href="https://wa.me/5575992888693" target="_blank"
+                                            class="flex items-center justify-center shrink-0 size-7 rounded-md bg-emerald-500 text-white hover:bg-emerald-600 transition-all"
+                                            title="Abrir WhatsApp">
+                                            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">chat</span>
+                                        </a>
+                                    </div>
+                                </div>
                                 <a href="https://1drv.ms/b/c/53D7CCAFE43FB947/IQAnVKAD3fkySbJ-8oFv2do9AQp0GKwIVj4pFmSnuQJ6HDA?e=cBS8q9"
                                     target="_blank"
                                     class="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
@@ -261,7 +285,7 @@
                             </div>
                             <div
                                 class="relative w-[220px] h-[300px] md:w-[300px] md:h-[400px] bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden border-4 border-white dark:border-slate-900 shadow-2xl shadow-primary/10">
-                                <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-[1.6] origin-[center_5%]"
+                                <img class="w-full h-full object-cover transition-all duration-500 scale-[1.6] origin-[center_5%]"
                                     data-alt="Vertical portrait of a professional male data analyst smiling"
                                     src="profile_final.jpg" />
                             </div>
@@ -600,10 +624,10 @@
                         </div>
 
                         <!-- Initial Gallery Grid -->
-                        <div id="video-gallery-mode" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+                        <div id="video-gallery-mode" class="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide pb-6 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 items-end">
                             <!-- Phase 1 -->
                             <div onclick="openTimelapsePlayer(1)"
-                                class="timelapse-card cursor-pointer group flex flex-col gap-6">
+                                class="timelapse-card cursor-pointer group flex flex-col gap-6 min-w-[85vw] md:min-w-0 snap-center">
                                 <div
                                     class="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-900">
                                     <div
@@ -624,34 +648,32 @@
                                 </div>
                             </div>
 
-                            <!-- Phase 2 (Coming Soon) -->
-                            <div
-                                class="timelapse-card group flex flex-col gap-6 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                            <!-- Phase 2 -->
+                            <div onclick="openTimelapsePlayer(2)"
+                                class="timelapse-card cursor-pointer group flex flex-col gap-6 min-w-[85vw] md:min-w-0 snap-center">
                                 <div
-                                    class="relative aspect-video rounded-2xl overflow-hidden border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-800/30 flex flex-col items-center justify-center gap-3">
-                                    <div class="flex items-center gap-2 animate-pulse scale-75">
-                                        <span class="text-2xl">🚧</span>
-                                        <span
-                                            class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Em
-                                            Breve</span>
-                                        <span class="text-2xl">🚧</span>
-                                    </div>
-                                    <div class="w-10 h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                                        <div class="h-full bg-primary w-1/2 animate-[loading_1.5s_infinite_ease-in-out]">
+                                    class="relative aspect-video rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl bg-slate-900">
+                                    <div
+                                        class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all z-10">
+                                        <div
+                                            class="size-16 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/40 group-hover:scale-110 transition-transform">
+                                            <span class="material-symbols-outlined text-3xl">play_arrow</span>
                                         </div>
                                     </div>
+                                    <img src="lograpid.png"
+                                        class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" />
                                 </div>
                                 <div class="text-center space-y-2">
                                     <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-500 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">Fase
+                                        class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded-full">Fase
                                         02</span>
-                                    <h4 class="text-slate-500 dark:text-slate-400 font-bold">Modeling</h4>
+                                    <h4 class="text-slate-900 dark:text-white font-bold">Modeling</h4>
                                 </div>
                             </div>
 
                             <!-- Phase 3 (Coming Soon) -->
                             <div
-                                class="timelapse-card group flex flex-col gap-6 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                                class="timelapse-card group flex flex-col gap-6 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all min-w-[85vw] md:min-w-0 snap-center">
                                 <div
                                     class="relative aspect-video rounded-2xl overflow-hidden border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-100/50 dark:bg-slate-800/30 flex flex-col items-center justify-center gap-3">
                                     <div class="flex items-center gap-2 animate-pulse scale-75">
@@ -702,49 +724,96 @@
                 <section class="py-16 border-t border-slate-200 dark:border-slate-800" id="competencias">
                     <h2 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight mb-10 text-center">Minha
                         Caixa de Ferramentas</h2>
-                    <div
-                        class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all">
-                        <div class="flex flex-col items-center gap-2">
-                            <div
-                                class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
-                                <span class="material-symbols-outlined text-3xl text-primary">database</span>
+                    <div class="flex flex-wrap justify-center gap-6 md:gap-8 max-w-[900px] mx-auto px-4">
+                        <!-- Card: SQL -->
+                        <div
+                            class="group flex flex-col items-center justify-between bg-white dark:bg-slate-900 rounded-[2rem] shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 p-6 w-[130px] h-[150px] md:w-[150px] md:h-[170px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(68,121,161,0.15)]">
+                            <div class="flex-1 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-[#4479A1] group-hover:scale-110 transition-transform duration-300 drop-shadow-sm"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.4c5.302 0 9.6 4.298 9.6 9.6S17.302 21.6 12 21.6 2.4 17.302 2.4 12 6.698 2.4 12 2.4zm-2.6 3.116c-.522.048-1.043.155-1.547.332-1.52.532-2.733 1.637-3.414 3.107-.15.32-.26.65-.33 1-.03.15-.05.31-.05.47 0 .09-.01.18-.01.27v2.302c0 .35.03.7.08 1.05.07.45.19.89.36 1.31.25.62.61 1.19 1.03 1.69.42.5 1 .91 1.57 1.25.1.06.2.11.31.17l.03.02c.04.02.08.04.13.06.14.07.3.13.46.19.3.1.61.18.93.24.46.08.93.12 1.41.12.35 0 .7-.02 1.04-.06.4-.04.8-.1 1.19-.2.38-.09.75-.22 1.1-.37.52-.22 1.01-.5 1.46-.83.67-.48 1.26-1.08 1.73-1.78.3-.44.55-.91.75-1.42.1-.25.18-.51.24-.78.03-.13.05-.27.06-.4v-.32c0-.36-.04-.72-.1-1.07-.1-.65-.32-1.28-.6-1.87-.5-1.07-1.24-2.02-2.14-2.78-.4-.34-.84-.65-1.3-.92-.62-.35-1.28-.62-1.98-.82-.67-.18-1.37-.28-2.07-.28-.51 0-1.03.05-1.54.14z" />
+                                </svg>
                             </div>
-                            <span class="text-xs font-bold uppercase">SQL</span>
+                            <span
+                                class="text-xs md:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider group-hover:text-[#4479A1] transition-colors">SQL</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div
-                                class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
-                                <span class="material-symbols-outlined text-3xl text-primary">terminal</span>
+
+                        <!-- Card: Python -->
+                        <div
+                            class="group flex flex-col items-center justify-between bg-white dark:bg-slate-900 rounded-[2rem] shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 p-6 w-[130px] h-[150px] md:w-[150px] md:h-[170px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(55,118,171,0.15)]">
+                            <div class="flex-1 flex items-center justify-center">
+                                <svg viewBox="0 0 128 128"
+                                    class="w-16 h-16 group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+                                    <path fill="#387EB8"
+                                        d="M64.3,3.7C30.6,3.7,31,31,31,31v17.5h34.2v4.8H21.5c-29.3,0-30.4,42.5-12.7,59.3C21.6,124.6,35,124,35,124v-16c0-11.8,9.7-21.5,21.5-21.5h33.8c12,0,21.8-9.8,21.8-21.8V42.6c0-26.6-25-38.9-47.8-38.9z M48.7,19.3c3.5,0,6.4,2.9,6.4,6.4s-2.9,6.4-6.4,6.4c-3.5,0-6.4-2.9-6.4-6.4C42.3,22.2,45.2,19.3,48.7,19.3z" />
+                                    <path fill="#FFE052"
+                                        d="M63.7,124.3c33.7,0,33.3-27.3,33.3-27.3V79.5H62.8v-4.8h43.7c29.3,0,30.4-42.5,12.7-59.3C106.4,3.4,93,4,93,4v16c0,11.8-9.7,21.5-21.5,21.5H37.7C25.7,41.5,16,51.3,16,63.4v22.1c0,26.6,25,38.9,47.8,38.9z M79.3,108.7c-3.5,0-6.4-2.9-6.4-6.4s2.9-6.4,6.4-6.4c3.5,0,6.4,2.9,6.4,6.4C85.7,105.8,82.8,108.7,79.3,108.7z" />
+                                </svg>
                             </div>
-                            <span class="text-xs font-bold uppercase">Python</span>
+                            <span
+                                class="text-xs md:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider group-hover:text-[#387EB8] transition-colors">Python</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div
-                                class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
-                                <span class="material-symbols-outlined text-3xl text-primary">functions</span>
+
+                        <!-- Card: R -->
+                        <div
+                            class="group flex flex-col items-center justify-between bg-white dark:bg-slate-900 rounded-[2rem] shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 p-6 w-[130px] h-[150px] md:w-[150px] md:h-[170px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(39,109,195,0.15)]">
+                            <div class="flex-1 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-[#276DC3] group-hover:scale-110 transition-transform duration-300 drop-shadow-sm"
+                                    viewBox="0 0 256 256" fill="currentColor">
+                                    <path
+                                        d="M125.7 131.6c-4.9-5.1-9-10.4-12.7-16 19.3-5.2 33.3-22 33.3-42.5C146.3 46 125 24 95.8 24H32v124h21.4V46h42.4c17.5 0 31.8 13.5 31.8 30.1 0 16.6-14.3 30.1-31.8 30.1H74.3v18.7h21.5c4.7 0 9.2-.6 13.5-1.8 4 6 8.3 11.6 13.4 17l36.8 39.9H189L125.7 131.6z" />
+                                    <path
+                                        d="M224 131.6c0-43.3-37.1-78.6-82.7-78.6-13.8 0-26.8 3.3-38.3 9.1v23.2c11-6.6 24-10.4 38.3-10.4 33.5 0 60.8 25.3 60.8 56.7s-27.3 56.7-60.8 56.7c-21.7 0-40.6-10.6-51.5-26.5l-19.1 11.1C85 194.5 111.4 210.2 141.3 210.2c45.6 0 82.7-35.3 82.7-78.6z" />
+                                </svg>
                             </div>
-                            <span class="text-xs font-bold uppercase">R</span>
+                            <span
+                                class="text-xs md:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider group-hover:text-[#276DC3] transition-colors">R</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div
-                                class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
-                                <span class="material-symbols-outlined text-3xl text-primary">bar_chart</span>
+
+                        <!-- Card: Power BI -->
+                        <div
+                            class="group flex flex-col items-center justify-between bg-white dark:bg-slate-900 rounded-[2rem] shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 p-6 w-[130px] h-[150px] md:w-[150px] md:h-[170px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(242,200,17,0.15)]">
+                            <div class="flex-1 flex items-center justify-center">
+                                <svg viewBox="0 0 256 256"
+                                    class="w-16 h-16 group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+                                    <path fill="#E6AD10" d="M42.7 138.7h53.3v106.7H42.7z" />
+                                    <path fill="#F2C811" d="M101.3 74.7h53.3v170.7h-53.3z" />
+                                    <path fill="#F2E600" d="M160 10.7h53.3v234.7H160z" />
+                                </svg>
                             </div>
-                            <span class="text-xs font-bold uppercase">Power BI</span>
+                            <span
+                                class="text-xs md:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider group-hover:text-[#F2C811] transition-colors">Power
+                                BI</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div
-                                class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
-                                <span class="material-symbols-outlined text-3xl text-primary">table_chart</span>
+
+                        <!-- Card: Excel -->
+                        <div
+                            class="group flex flex-col items-center justify-between bg-white dark:bg-slate-900 rounded-[2rem] shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 p-6 w-[130px] h-[150px] md:w-[150px] md:h-[170px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(33,115,70,0.15)]">
+                            <div class="flex-1 flex items-center justify-center">
+                                <svg viewBox="0 0 256 256"
+                                    class="w-16 h-16 group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+                                    <path fill="#21A366" d="M152.9 220l-152.9-34.9v-114l152.9-34.9z" />
+                                    <path fill="#107C41"
+                                        d="M152.9 36.2v21.5l103.1 19.1v102.4l-103.1 19.1v21.7L256 200V56z" />
+                                    <path fill="#33C481" d="M152.9 57.7v140.6l54.8-10.1V67.8z" />
+                                    <path fill="#fff"
+                                        d="M109 176.6h-24.5l-19.1-41.2c-1.5-3.5-3-7.5-4.5-11.9h-.3c-1 3.5-2.5 7.5-4.5 11.9l-19.8 41.2h-25l32.1-57.8-30.8-55.7h25l18 39.5c1.5 3.5 3 7.8 4.3 12.6h.3c1.3-4.5 2.8-8.8 4.6-12.8l18.5-39.3h24l-31.1 56.4 32.8 57z" />
+                                </svg>
                             </div>
-                            <span class="text-xs font-bold uppercase">Excel</span>
+                            <span
+                                class="text-xs md:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider group-hover:text-[#217346] transition-colors">Excel</span>
                         </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div
-                                class="size-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-200 dark:border-slate-800">
-                                <span class="material-symbols-outlined text-3xl text-primary">calculate</span>
+
+                        <!-- Card: Estatística -->
+                        <div
+                            class="group flex flex-col items-center justify-between bg-white dark:bg-slate-900 rounded-[2rem] shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-800 p-6 w-[130px] h-[150px] md:w-[150px] md:h-[170px] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_32px_rgba(139,92,246,0.15)]">
+                            <div class="flex-1 flex items-center justify-center">
+                                <span
+                                    class="material-symbols-outlined text-[64px] text-[#8B5CF6] group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">calculate</span>
                             </div>
-                            <span class="text-xs font-bold uppercase">ESTATÍSTICA</span>
+                            <span
+                                class="text-xs md:text-sm font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider group-hover:text-[#8B5CF6] transition-colors">Estatística</span>
                         </div>
                     </div>
                 </section>
@@ -807,6 +876,28 @@
             document.getElementById('hero-contact-menu')?.classList.add('hidden');
         });
 
+        // Função para Copiar E-mail
+        async function copyToClipboard(text, btn) {
+            try {
+                await navigator.clipboard.writeText(text);
+                const icon = btn.querySelector('.material-symbols-outlined');
+                const originalIcon = icon.textContent;
+                
+                // Feedback visual
+                icon.textContent = 'check';
+                btn.classList.add('bg-emerald-50', 'text-emerald-600', 'border-emerald-200');
+                btn.classList.remove('text-primary');
+
+                setTimeout(() => {
+                    icon.textContent = originalIcon;
+                    btn.classList.remove('bg-emerald-50', 'text-emerald-600', 'border-emerald-200');
+                    btn.classList.add('text-primary');
+                }, 2000);
+            } catch (err) {
+                console.error('Erro ao copiar:', err);
+            }
+        }
+
         // Atualizar ícone do tema
         function updateThemeIcon() {
             const icon = document.getElementById('theme-icon');
@@ -864,8 +955,8 @@
             },
             2: {
                 title: "Fase 02: Modeling",
-                desc: "Em breve: Construção do modelo dimensional e medidas DAX",
-                url: ""
+                desc: "Construção do modelo dimensional e medidas DAX",
+                url: "https://1drv.ms/v/c/53D7CCAFE43FB947/IQQdqIBjWgIXT6vr_SMfV4whAcABMttotC_ZJJ4BRMzA044?width=1920&height=1080"
             },
             3: {
                 title: "Fase 03: Visualization",
