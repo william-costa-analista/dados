@@ -191,9 +191,16 @@
         /* Scroll Reveal Animation Styles */
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(50px);
             transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000), transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
             will-change: transform, opacity;
+        }
+
+        .scroll-reveal.scroll-down:not(.active) {
+            transform: translateY(50px);
+        }
+
+        .scroll-reveal.scroll-up:not(.active) {
+            transform: translateY(-50px);
         }
 
         .scroll-reveal.active {
@@ -1118,7 +1125,7 @@
                 scannerObserver.observe(titleContainer);
             }
 
-            // Scroll Reveal Animation (Intersection Observer)
+            // Scroll Reveal Animation with Position Detection
             const revealElements = document.querySelectorAll('.scroll-reveal');
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1126,6 +1133,13 @@
                         entry.target.classList.add('active');
                     } else {
                         entry.target.classList.remove('active');
+                        if (entry.boundingClientRect.y < 0) {
+                            entry.target.classList.add('scroll-up');
+                            entry.target.classList.remove('scroll-down');
+                        } else {
+                            entry.target.classList.add('scroll-down');
+                            entry.target.classList.remove('scroll-up');
+                        }
                     }
                 });
             }, {
@@ -1133,7 +1147,9 @@
                 rootMargin: '0px 0px -50px 0px'
             });
 
+            // Initialize all with scroll-down by default
             revealElements.forEach(el => {
+                el.classList.add('scroll-down');
                 revealObserver.observe(el);
             });
 
@@ -1158,11 +1174,20 @@
 
             function toggleContactForm(e) {
                 if (e) e.preventDefault();
+                const isOpening = contactFormContainer.classList.contains('max-h-0');
                 contactFormContainer.classList.toggle('max-h-[700px]');
                 contactFormContainer.classList.toggle('max-h-0');
                 contactFormContainer.classList.toggle('opacity-100');
                 contactFormContainer.classList.toggle('opacity-0');
-                contactExpandIcon.style.transform = contactFormContainer.classList.contains('max-h-[700px]') ? 'rotate(180deg)' : 'rotate(0deg)';
+                contactExpandIcon.style.transform = isOpening ? 'rotate(180deg)' : 'rotate(0deg)';
+
+                if (isOpening) {
+                    setTimeout(() => {
+                        contactFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 150);
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             }
 
             if (toggleContactBtn) toggleContactBtn.addEventListener('click', toggleContactForm);
@@ -1289,6 +1314,38 @@
             });
         }
     </script>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="scrollToTopBtn"
+        class="hidden fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 items-center justify-center size-10 md:size-14 bg-white rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.6)] dark:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300 hover:scale-110 active:scale-95 animate-pulse">
+        <span class="material-symbols-outlined text-slate-900 text-2xl md:text-3xl font-bold">keyboard_arrow_up</span>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollTopBtn = document.getElementById('scrollToTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        scrollTopBtn.classList.remove('hidden');
+                        scrollTopBtn.classList.add('flex');
+                    } else {
+                        scrollTopBtn.classList.add('hidden');
+                        scrollTopBtn.classList.remove('flex');
+                    }
+                });
+
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    const contactContainer = document.getElementById('contact-form-container');
+                    if (contactContainer && contactContainer.classList.contains('max-h-[700px]')) {
+                        const toggleBtn = document.getElementById('toggle-contact-form-btn');
+                        if (toggleBtn) toggleBtn.click();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 
 </html>
