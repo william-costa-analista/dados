@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Não Encontrada | Portfolio William S. Costa</title>
+    <script>
+        // Clean URL Redirection Script for GitHub Pages
+        (function() {
+            var path = window.location.pathname;
+            if (path.endsWith('.html')) {
+                // Remove the .html extension and replace with a trailing slash for a clean URL
+                var cleanPath = path.substring(0, path.length - 5);
+                // Ensure it ends with a slash
+                if (!cleanPath.endsWith('/')) {
+                    cleanPath += '/';
+                }
+                window.location.replace(window.location.origin + cleanPath + window.location.search + window.location.hash);
+            }
+        })();
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #10131a;
+            color: #e4e1ed;
+        }
+    </style>
+</head>
+<body class="font-body flex flex-col items-center justify-center min-h-screen p-6">
+    <div class="text-center max-w-md">
+        <h1 class="font-headline text-8xl font-extrabold text-[#75ff9e] mb-4">404</h1>
+        <h2 class="text-2xl font-bold text-[#e1e2eb] mb-4">Página Não Encontrada</h2>
+        <p class="text-slate-400 mb-8 leading-relaxed">
+            O link que você acessou pode ter mudado devido à nossa recente otimização de URLs Limpas.
+        </p>
+        <a href="/" class="inline-flex items-center gap-2 bg-[#75ff9e] text-[#10131a] font-bold py-3 px-8 rounded-lg hover:bg-[#5ce685] transition-all active:scale-95">
+            Voltar para o Início
+        </a>
+    </div>
+</body>
+</html>
